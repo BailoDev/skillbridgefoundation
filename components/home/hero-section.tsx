@@ -65,7 +65,7 @@ function PatternOverlay({ className }: { className?: string }) {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-white via-white to-blue-light/30">
+    <section className="relative min-h-screen flex items-center justify-center pt-4 sm:pt-16 lg:pt-20 overflow-hidden bg-gradient-to-b from-white via-white to-blue-light/30">
       {/* Dot grid accents - positioned in corners */}
       <DotGridAccent className="top-28 left-6 lg:left-16" />
       <DotGridAccent className="top-28 right-6 lg:right-16" />
@@ -105,7 +105,7 @@ export default function HeroSection() {
         <PatternOverlay />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-24">
         <div className="text-center max-w-4xl mx-auto">
           {/* Launch Partner Badge */}
           <motion.div
