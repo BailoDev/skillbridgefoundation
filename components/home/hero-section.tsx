@@ -13,8 +13,8 @@ const trustItems = [
   },
   {
     icon: GraduationCap,
-    title: 'UTG Launch Partner',
-    description: 'Starting at the University of The Gambia',
+    title: 'Career-Focused',
+    description: 'Practical skills and clarity for education and work',
   },
   {
     icon: Users,
