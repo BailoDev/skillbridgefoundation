@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Instagram, Facebook, Linkedin, Mail, Home, Info, BookOpen, CalendarDays, FolderOpen, MessageCircle } from 'lucide-react'
+import { Instagram, Linkedin, Mail, Home, Info, BookOpen, CalendarDays, FolderOpen, MessageCircle } from 'lucide-react'
+import { FaTiktok } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
@@ -17,9 +18,9 @@ const navLinks = [
 ]
 
 const socialLinks = [
-  { href: 'https://instagram.com', icon: Instagram, label: 'Instagram' },
-  { href: 'https://facebook.com', icon: Facebook, label: 'Facebook' },
-  { href: 'https://linkedin.com', icon: Linkedin, label: 'LinkedIn' },
+  { href: 'https://www.instagram.com/skillbridge_foundation?igsh=MWl6eDFwYWliYnlncw==', icon: Instagram, label: 'Instagram' },
+  { href: 'https://www.linkedin.com/posts/skillbridge-foundation_technology-activity-7452412069867499520-RHoW?utm_source=share&utm_medium=member_android&rcm=ACoAAEeoPDgBBRvkTMp9TJvFUsQkgymiLYAkIG0', icon: Linkedin, label: 'LinkedIn' },
+  { href: 'https://www.tiktok.com/@skillbridge_foundation?_r=1&_t=ZT-96a4UWtw2rF', icon: FaTiktok, label: 'TikTok' },
   { href: 'mailto:skillbridgef@gmail.com', icon: Mail, label: 'Email' },
 ]
 
