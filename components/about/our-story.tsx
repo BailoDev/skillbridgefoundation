@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { MessageSquare, Lightbulb, GraduationCap, Rocket } from 'lucide-react'
+import { MessageSquare, Lightbulb, Rocket } from 'lucide-react'
 
 const storySteps = [
   {
@@ -13,11 +13,6 @@ const storySteps = [
     icon: Lightbulb,
     title: 'Our Response',
     description: 'We created a structured program to close the gap intentionally.',
-  },
-  {
-    icon: GraduationCap,
-    title: 'Launch at UTG',
-    description: 'We start at UTG to build, learn and refine our model.',
   },
   {
     icon: Rocket,
@@ -41,10 +36,10 @@ export default function OurStory() {
         </motion.div>
 
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-border -translate-y-1/2" />
+          {/* Timeline Line — spans between the 3 icon centers */}
+          <div className="hidden sm:block absolute top-8 left-[calc(16.67%+32px)] right-[calc(16.67%+32px)] h-0.5 bg-border" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {storySteps.map((step, index) => (
               <motion.div
                 key={step.title}
@@ -55,8 +50,8 @@ export default function OurStory() {
                 className="relative text-center"
               >
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="flex items-center justify-center w-16 h-16 bg-white border-2 border-gold rounded-full mb-4 shadow-lg">
-                    <step.icon className="h-7 w-7 text-gold" />
+                  <div className="flex items-center justify-center w-16 h-16 bg-white border-2 border-navy rounded-full mb-4 shadow-lg">
+                    <step.icon className="h-7 w-7 text-navy" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{step.title}</h3>
                   <p className="text-sm text-muted-foreground">{step.description}</p>

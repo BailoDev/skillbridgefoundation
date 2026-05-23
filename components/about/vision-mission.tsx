@@ -24,15 +24,15 @@ export default function VisionMission() {
             </h2>
             <div className="mt-4 flex gap-1">
               <div className="h-1.5 w-12 bg-navy rounded-full" />
-              <div className="h-1.5 w-12 bg-gold rounded-full" />
+              <div className="h-1.5 w-12 bg-navy rounded-full" />
             </div>
           </div>
 
           {/* Mission Card */}
-          <div className="lg:w-2/3 flex items-center gap-6 bg-card rounded-lg p-6 shadow-sm border border-border">
+          <div className="lg:w-2/3 flex flex-col sm:flex-row items-center gap-6 bg-card rounded-lg p-6 shadow-sm border border-border">
             {/* Circular Image */}
             <div className="relative flex-shrink-0">
-              <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-muted">
+              <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-muted">
                 <Image
                   src="/images/mission.jpg"
                   alt="Hands holding seeds representing our mission"
@@ -44,7 +44,7 @@ export default function VisionMission() {
             </div>
 
             {/* Mission Content */}
-            <div className="flex-1 pl-6 border-l-2 border-muted">
+            <div className="flex-1 sm:pl-6 sm:border-l-2 border-muted text-center sm:text-left">
               <h3 className="text-xl lg:text-2xl font-bold bg-gradient-to-br from-navy to-blue-secondary bg-clip-text text-transparent mb-3">
                 Mission
               </h3>
@@ -57,7 +57,7 @@ export default function VisionMission() {
           </div>
         </motion.div>
 
-        {/* Vision Row - Card spans and offset to the left */}
+        {/* Vision Row */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,22 +66,10 @@ export default function VisionMission() {
           className="flex justify-start"
         >
           {/* Vision Card */}
-          <div className="lg:w-2/3 flex items-center gap-6 bg-card rounded-lg p-6 shadow-sm border border-border">
-            {/* Vision Content */}
-            <div className="flex-1 pr-6 border-r-2 border-muted text-right">
-              <h3 className="text-xl lg:text-2xl font-bold text-gold mb-3">
-                Vision
-              </h3>
-              <p className="text-muted-foreground leading-relaxed text-sm lg:text-base">
-                To contribute to the development of a generation of young people in The Gambia
-                who possess the skills, clarity, and confidence needed to actively participate
-                in national development and succeed in the global workforce.
-              </p>
-            </div>
-
+          <div className="w-full lg:w-2/3 flex flex-col sm:flex-row-reverse items-center gap-6 bg-card rounded-lg p-6 shadow-sm border border-border">
             {/* Circular Image */}
             <div className="relative flex-shrink-0">
-              <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-muted">
+              <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-muted">
                 <Image
                   src="/images/vision.jpg"
                   alt="Planning tools representing our vision"
@@ -90,6 +78,18 @@ export default function VisionMission() {
                   className="w-full h-full object-cover grayscale"
                 />
               </div>
+            </div>
+
+            {/* Vision Content */}
+            <div className="flex-1 sm:pr-6 sm:border-r-2 border-muted text-center sm:text-right">
+              <h3 className="text-xl lg:text-2xl font-bold bg-gradient-to-br from-navy to-blue-secondary bg-clip-text text-transparent mb-3">
+                Vision
+              </h3>
+              <p className="text-muted-foreground leading-relaxed text-sm lg:text-base">
+                To contribute to the development of a generation of young people in The Gambia
+                who possess the skills, clarity, and confidence needed to actively participate
+                in national development and succeed in the global workforce.
+              </p>
             </div>
           </div>
         </motion.div>
