@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Layers, Building2, Users, Target } from 'lucide-react'
+import { Layers, Users, Target } from 'lucide-react'
 
 interface StatItem {
   value: number
@@ -13,7 +13,6 @@ interface StatItem {
 
 const stats: StatItem[] = [
   { value: 4, suffix: '', label: 'Program Pillars', icon: Layers },
-  { value: 1, suffix: '', label: 'Launch Institution (UTG)', icon: Building2 },
   { value: 0, suffix: '', label: 'Growing Youth Network', icon: Users },
   { value: 100, suffix: '%', label: 'Career-Focused', icon: Target },
 ]
@@ -57,7 +56,6 @@ function AnimatedCounter({ value, suffix, inView }: { value: number; suffix: str
   )
 }
 
-// Guilloche wave pattern SVG background
 function GuillocheWavePattern() {
   return (
     <svg
@@ -74,37 +72,11 @@ function GuillocheWavePattern() {
           height="40"
           patternUnits="userSpaceOnUse"
         >
-          {/* Multiple sinusoidal wave lines */}
-          <path
-            d="M0 20 Q25 5 50 20 T100 20 T150 20 T200 20"
-            stroke="#1C376B"
-            strokeWidth="0.8"
-            fill="none"
-          />
-          <path
-            d="M0 25 Q25 10 50 25 T100 25 T150 25 T200 25"
-            stroke="#1C376B"
-            strokeWidth="0.6"
-            fill="none"
-          />
-          <path
-            d="M0 15 Q25 0 50 15 T100 15 T150 15 T200 15"
-            stroke="#1C376B"
-            strokeWidth="0.6"
-            fill="none"
-          />
-          <path
-            d="M0 30 Q25 15 50 30 T100 30 T150 30 T200 30"
-            stroke="#1C376B"
-            strokeWidth="0.5"
-            fill="none"
-          />
-          <path
-            d="M0 10 Q25 -5 50 10 T100 10 T150 10 T200 10"
-            stroke="#1C376B"
-            strokeWidth="0.5"
-            fill="none"
-          />
+          <path d="M0 20 Q25 5 50 20 T100 20 T150 20 T200 20" stroke="#1C376B" strokeWidth="0.8" fill="none" />
+          <path d="M0 25 Q25 10 50 25 T100 25 T150 25 T200 25" stroke="#1C376B" strokeWidth="0.6" fill="none" />
+          <path d="M0 15 Q25 0 50 15 T100 15 T150 15 T200 15" stroke="#1C376B" strokeWidth="0.6" fill="none" />
+          <path d="M0 30 Q25 15 50 30 T100 30 T150 30 T200 30" stroke="#1C376B" strokeWidth="0.5" fill="none" />
+          <path d="M0 10 Q25 -5 50 10 T100 10 T150 10 T200 10" stroke="#1C376B" strokeWidth="0.5" fill="none" />
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#guillocheWaves)" />
@@ -118,7 +90,6 @@ export default function ImpactSection() {
 
   return (
     <section ref={ref} className="py-20 lg:py-24 bg-blue-light relative overflow-hidden">
-      {/* Guilloche wave texture background */}
       <GuillocheWavePattern />
       
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -134,7 +105,7 @@ export default function ImpactSection() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}

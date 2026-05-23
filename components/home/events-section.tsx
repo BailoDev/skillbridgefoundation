@@ -6,13 +6,13 @@ import Link from 'next/link'
 import { MapPin, Clock, Calendar } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-const filters = ['All Events', 'Workshops', 'Talks', 'Mentorship', 'Career Sessions']
+const filters = ['All Events', 'Fellowship', 'Talks', 'Mentorship', 'Career Sessions']
 
 const events = [
   {
     id: 1,
     date: { day: '—', month: 'TBC' },
-    type: 'Workshop',
+    type: 'Fellowship',
     title: 'Digital Skills for Academic Success',
     description: 'Improve your digital tools and productivity in various industries.',
     time: 'To be confirmed',

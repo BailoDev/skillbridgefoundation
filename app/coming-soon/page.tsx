@@ -18,10 +18,6 @@ export default function ComingSoonPage() {
             <Clock className="h-10 w-10 text-navy" />
           </div>
 
-          <p className="text-navy/60 text-sm font-semibold uppercase tracking-widest mb-3">
-            Under Construction
-          </p>
-
           <h1 className="text-4xl sm:text-5xl font-bold text-navy mb-6">
             Coming Soon...
           </h1>

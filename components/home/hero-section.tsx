@@ -115,7 +115,7 @@ export default function HeroSection() {
           >
             <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-full text-sm font-medium text-navy shadow-sm">
               <Link2 className="h-4 w-4 text-navy" />
-              Launch Partner: University of The Gambia
+              Bridging Potential, Building Futures
             </span>
           </motion.div>
 
