@@ -150,10 +150,10 @@ export default function HeroSection() {
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link
-              href="/programs"
+              href="https://forms.gle/dZNcoTAoJG8T4Her8"
               className="inline-flex items-center justify-center px-8 py-3.5 bg-navy text-white font-semibold rounded-lg hover:bg-navy-dark transition-colors shadow-md"
             >
-              Join Programs
+              Apply for Fellowship
             </Link>
             <Link
               href="/about"
