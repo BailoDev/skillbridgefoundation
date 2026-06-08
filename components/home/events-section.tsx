@@ -11,13 +11,13 @@ const filters = ['All Events', 'Fellowship', 'Talks', 'Mentorship', 'Career Sess
 const events = [
   {
     id: 1,
-    date: { day: '—', month: 'TBC' },
+    date: { day: '—', month: 'July 2026' },
     type: 'Fellowship',
-    title: 'Digital Skills for Academic Success',
-    description: 'Improve your digital tools and productivity in various industries.',
-    time: 'To be confirmed',
-    location: 'To be confirmed',
-    category: 'Workshops',
+    title: 'Career Accelerator Fellowship',
+    description: 'A competetive 16-week professional development program design for abitious young people who are serious about bridging the gap between where they are and where they want to be professionally.',
+    time: 'July 2026',
+    location: 'Kairaba Avenue, beside Qcell',
+    category: 'Fellowship',
   },
   {
     id: 2,
@@ -145,7 +145,9 @@ export default function EventsSection() {
                 </div>
 
                 <button className="mt-6 w-full px-4 py-2.5 bg-navy text-white font-medium rounded-xl hover:bg-navy-dark transition-colors">
-                  Opening Soon
+                  <a href="https://forms.gle/dZNcoTAoJG8T4Her8" target="_blank" rel="noopener noreferrer">
+                    Apply Now
+                  </a>
                 </button>
               </div>
             </motion.div>
