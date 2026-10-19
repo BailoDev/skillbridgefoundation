@@ -1,133 +1,182 @@
 "use client"
 
+import type { CSSProperties, ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import Image from 'next/image'
-import { Link2, Layers, GraduationCap, Users } from 'lucide-react'
+import { Link2, ArrowRight, Play } from 'lucide-react'
+import { Poppins } from 'next/font/google'
 
-const trustItems = [
-  {
-    icon: Layers,
-    title: '4 Core Pillars',
-    description: 'A complete development journey',
-  },
-  {
-    icon: GraduationCap,
-    title: 'Career-Focused',
-    description: 'Practical skills and clarity for education and work',
-  },
-  {
-    icon: Users,
-    title: 'Youth-Focused',
-    description: 'Empowering learners at every stage of their journey',
-  },
-]
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+})
 
-function DotGridAccent({ className }: { className?: string }) {
+// Colour theme sampled from the reference image.
+const theme = {
+  '--hero-bg': '#1C376B', // deep navy background
+  '--hero-paper': '#f7fbfe',
+  '--hero-white': '#ffff',
+} as CSSProperties
+
+
+/* Torn-paper edge: a deterministic (no Math.random → no hydration mismatch) jagged line. */
+const tornPath = (() => {
+  const width = 1440
+  const step = 10
+  let d = 'M0 40 L0 20'
+  for (let x = step; x <= width; x += step) {
+    const i = x / step
+    const y =
+      20 + 6 * Math.sin(i * 2.3) + 5 * Math.sin(i * 0.61 + 2) + 4 * Math.sin(i * 5.1)
+    d += ` L${x} ${y.toFixed(1)}`
+  }
+  return `${d} L${width} 40 Z`
+})()
+
+const doodle = {
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.5,
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+} as const
+
+/* Laptop line art (viewBox 0 0 140 100) */
+function LaptopPaths() {
   return (
-    <svg
-      className={`absolute pointer-events-none ${className}`}
-      width="70"
-      height="100"
-      viewBox="0 0 70 100"
-      fill="none"
-    >
-      {Array.from({ length: 6 }).map((_, row) =>
-        Array.from({ length: 4 }).map((_, col) => (
-          <circle
-            key={`${row}-${col}`}
-            cx={col * 16 + 8}
-            cy={row * 16 + 8}
-            r="2.5"
-            fill="#7BA3D8"
-            opacity="0.5"
-          />
-        ))
-      )}
-    </svg>
+    <>
+      <rect x="24" y="8" width="92" height="62" rx="6" />
+      <rect x="32" y="16" width="76" height="46" rx="2" />
+      <path d="M6 78h128l-8 11a4 4 0 0 1-3 2H17a4 4 0 0 1-3-2Z" />
+      <path d="M58 78h24" />
+      <path d="M42 28h26M42 38h44M42 48h20" />
+    </>
   )
 }
 
-function PatternOverlay({ className }: { className?: string }) {
+function Doodles() {
   return (
-    <div className={`absolute inset-0 pointer-events-none ${className}`}>
-      <svg width="100%" height="100%" className="opacity-[0.03]">
-        <defs>
-          <pattern id="lines" patternUnits="userSpaceOnUse" width="100%" height="3">
-            <line x1="0" y1="0" x2="100%" y2="0" stroke="#1C376B" strokeWidth="1" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#lines)" />
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 z-0 hidden text-white/[0.1] lg:block"
+    >
+      {/* Rocket */}
+      <svg viewBox="0 0 100 160" {...doodle} className="absolute left-[5%] top-[12rem] w-20 rotate-[40deg]">
+        <path d="M50 8C68 30 72 62 66 100H34C28 62 32 30 50 8Z" />
+        <circle cx="50" cy="56" r="9" />
+        <path d="M34 82 14 112l20-4Z" />
+        <path d="M66 82l20 30-20-4Z" />
+        <path d="M42 100v22M50 100v40M58 100v22" />
       </svg>
+
+      {/* Hot-air balloon */}
+      <svg viewBox="0 0 100 140" {...doodle} className="absolute right-[7%] top-[9rem] w-24">
+        <path d="M50 6C24 6 10 26 10 46c0 20 20 36 30 46h20c10-10 30-26 30-46C90 26 76 6 50 6Z" />
+        <path d="M50 6C38 24 34 66 42 92M50 6c12 18 16 60 8 86" />
+        <path d="m40 92 4 20M60 92l-4 20" />
+        <rect x="42" y="112" width="16" height="12" rx="2" />
+      </svg>
+
+      {/* Open book */}
+      <svg viewBox="0 0 200 140" {...doodle} className="absolute left-[20%] top-[25rem] w-44 -rotate-[10deg]">
+        <path d="M100 30C70 12 30 14 8 22v94c22-8 62-10 92 8Z" />
+        <path d="M100 30c30-18 70-16 92-8v94c-22-8-62-10-92 8Z" />
+        <path d="M100 30v94" />
+        <path d="M24 44c24-6 48-4 66 4M24 62c24-6 48-4 66 4M24 80c24-6 48-4 66 4" />
+        <path d="M110 48c18-8 42-10 66-4M110 66c18-8 42-10 66-4M110 84c18-8 42-10 66-4" />
+      </svg>
+
+      {/* Circle */}
+      <svg viewBox="0 0 80 80" {...doodle} className="absolute right-[28%] top-[26rem] w-20">
+        <circle cx="40" cy="40" r="36" />
+        <circle cx="43" cy="38" r="34" />
+      </svg>
+
+      {/* Laptops */}
+      <svg viewBox="0 0 140 100" {...doodle} className="absolute left-[7%] top-[26rem] w-32 -rotate-[6deg]">
+        <LaptopPaths />
+      </svg>
+      <svg viewBox="0 0 140 100" {...doodle} className="absolute right-[6%] top-[18.5rem] w-28 rotate-[6deg]">
+        <LaptopPaths />
+      </svg>
+
+      {/* Triangle */}
+      <svg viewBox="0 0 120 100" {...doodle} className="absolute right-[7%] top-[29rem] w-28 rotate-[8deg]">
+        <path d="M10 92 60 8l48 84Z" />
+      </svg>
+    </div>
+  )
+}
+function Arch({
+  className,
+  bg,
+  src,
+  alt = '',
+  children,
+}: {
+  className?: string
+  bg: string
+  src?: string
+  alt?: string
+  children?: ReactNode
+}) {
+  return (
+    <div className={`relative ${className}`}>
+      {/* Outline ring (fades into the paper zone, exactly like the reference) */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -inset-2.5 rounded-full border border-white/60 sm:-inset-3"
+      />
+      <div className={`absolute inset-0 overflow-hidden rounded-full ${bg}`}>
+        {src ? (
+          <img src={src} alt={alt} className="h-full w-full object-cover object-bottom" />
+        ) : (
+          <svg
+            viewBox="0 0 200 200"
+            className="absolute inset-0 h-full w-full opacity-90"
+            preserveAspectRatio="xMidYMax slice"
+          >
+            <circle cx="100" cy="78" r="34" fill="#ffffff" fillOpacity="0.55" />
+            <path d="M40 200c0-44 27-80 60-80s60 36 60 80z" fill="#ffffff" fillOpacity="0.55" />
+          </svg>
+        )}
+        {children}
+      </div>
     </div>
   )
 }
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-4 sm:pt-16 lg:pt-20 overflow-hidden bg-gradient-to-b from-white via-white to-blue-light/30">
-      {/* Dot grid accents - positioned in corners */}
-      <DotGridAccent className="top-28 left-6 lg:left-16" />
-      <DotGridAccent className="top-28 right-6 lg:right-16" />
-      <DotGridAccent className="bottom-32 left-6 lg:left-16" />
-      <DotGridAccent className="bottom-32 right-6 lg:right-16" />
-
-      {/* Bridge hero background image — bottom-anchored, clearly visible with blue tint */}
-      <div className="absolute bottom-0 left-0 w-full h-[60%] pointer-events-none z-[1]">
-        {/* Soft top fade only — preserves full visibility at bottom */}
-        <div className="absolute top-0 left-0 right-0 h-[35%] bg-gradient-to-b from-white to-transparent z-[2]" />
-        <Image
-          src="/images/hero_bg.png"
-          alt=""
-          fill
-          className="object-cover object-bottom"
-          style={{
-            opacity: 0.35,
-            filter: 'grayscale(30%) hue-rotate(195deg) saturate(0.7) brightness(1.1)',
-          }}
-          priority
-        />
+    <section
+      style={theme}
+      className={`${poppins.className} relative overflow-hidden bg-[color:var(--hero-bg)] pb-8 pt-12 sm:pb-10 sm:pt-18 lg:pb-0 lg:pt-20`}
+    >
+      {/* Torn-paper zone at the bottom. The arches overhang into it. */}
+      <div className="absolute inset-x-0 bottom-0 z-0 h-24 bg-[color:var(--hero-white)] sm:h-[8.5rem] lg:h-48">
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 1440 40"
+          preserveAspectRatio="none"
+          className="absolute inset-x-0 bottom-[calc(100%-1px)] h-6 w-full sm:h-8"
+        >
+          <path d={tornPath} fill="var(--hero-white)" />
+        </svg>
       </div>
 
-      {/* Full bridge logo watermark - centered at bottom with blue tint */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] lg:w-[1100px] h-[500px] lg:h-[650px] pointer-events-none">
-        <div className="relative w-full h-full opacity-[0.06]">
-          <Image
-            src="/images/skillbridge-logo.png"
-            alt=""
-            fill
-            className="object-contain object-bottom"
-            style={{ 
-              filter: 'brightness(0) saturate(100%) invert(18%) sepia(45%) saturate(1200%) hue-rotate(193deg) brightness(95%) contrast(95%)'
-            }}
-          />
-        </div>
-        <PatternOverlay />
-      </div>
+      <Doodles />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-24">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Launch Partner Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-full text-sm font-medium text-navy shadow-sm">
-              <Link2 className="h-4 w-4 text-navy" />
-              Bridging Potential, Building Futures
-            </span>
-          </motion.div>
-
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
           {/* Main Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-10 text-4xl sm:text-5xl lg:text-[56px] font-serif font-bold text-navy leading-[1.1] tracking-tight text-balance"
+            className="mt-10 text-balance text-4xl font-bold leading-[1.15] tracking-tight text-white sm:mt-12 sm:text-5xl lg:text-[64px]"
           >
-            Building Skills, Clarity &<br />
-            Opportunity for Gambian Youth
+            Bridging the Gap Between Education &amp; Workforce
           </motion.h1>
 
           {/* Subtext */}
@@ -135,11 +184,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-6 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed"
+            className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base"
           >
-            SkillBridge Foundation equips young people with practical digital skills, 
-            learning strategies, career clarity, and professional exposure to thrive in 
-            education, work, and life.
+            Skills, talent and technology that move people from learning to work.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -147,56 +194,47 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="mt-8 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-8"
           >
             <Link
-              href="https://forms.gle/dZNcoTAoJG8T4Her8"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-navy text-white font-semibold rounded-lg hover:bg-navy-dark transition-colors shadow-md"
+              href="#"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-medium text-[color:var(--hero-bg)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
             >
-              Apply for Fellowship
+              Register for a course
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-navy font-semibold rounded-lg border-2 border-navy/20 hover:border-navy/40 hover:bg-gray-50 transition-colors"
+              className="group inline-flex items-center gap-3 text-sm font-medium text-white"
             >
-              Explore Our Mission
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/70 transition-colors duration-300 group-hover:bg-white group-hover:text-[color:var(--hero-bg)]">
+                <ArrowRight className="h-4 w-4" />
+              </span>
+              Explore SkillBridge
             </Link>
           </motion.div>
-
-          {/* Decorative divider line */}
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 mb-8 mx-auto w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"
-          />
-
-          {/* Trust Items */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
-          >
-            {trustItems.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                className="flex items-start gap-3 text-left"
-              >
-                <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 bg-blue-light/60 rounded-full border border-blue-glow/30">
-                  <item.icon className="h-5 w-5 text-navy" />
-                </div>
-                <div>
-                  <p className="font-semibold text-navy text-sm">{item.title}</p>
-                  <p className="text-xs text-gray-500 mt-0.5 leading-snug">{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
+
+        {/* Arch collage — placeholders; pass `src="/images/..."` to <Arch> for real photos */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mx-auto mt-14 flex max-w-4xl items-end justify-center gap-3 sm:gap-4"
+        >
+          <Arch
+            className="w-[31.5%] aspect-[277/463]"
+            bg="bg-[color:var(--hero-paper)]" src="/images/img_1.png" alt="Hero Arch 1"
+          />
+          <Arch
+            className="w-[33.3%] aspect-[293/498]"
+            bg="bg-[color:var(--hero-paper)]" src="/images/img-2.png" alt="Hero Arch 2"  
+          >
+          </Arch>
+          <Arch
+            className="w-[31.5%] aspect-[278/463]"
+            bg="bg-[color:var(--hero-paper)]" src="/images/img-1.png" alt="Hero Arch 3"
+          />
+        </motion.div>
       </div>
     </section>
   )

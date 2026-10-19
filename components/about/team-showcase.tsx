@@ -20,42 +20,59 @@ interface TeamShowcaseProps {
 }
 
 const defaultTeamMembers: TeamMember[] = [
-  {
+    {
     id: "1",
     name: "KAWSU KANTEH",
-    role: "Founder & Lead Facilitator",
+    role: "Co-Founder & Executive Director",
     avatar: "/images/kawsuk.jpeg",
     featuredImage: "/images/kawsu.jpeg",
-    description: "Driven by purpose, building something meaningful for the next generation.",
+    description:
+      "Leading with vision, purpose, and a commitment to empowering Gambian youth.",
   },
   {
     id: "2",
     name: "AMADOU BAILO BAH",
-    role: "Co-Founder & Lead Programs Officer",
+    role: "Co-Founder & CTO",
     avatar: "/images/bailob.jpg",
-    featuredImage: "/images/bailo.jpg",
-    description: "Driven by purpose, building something meaningful for the next generation",
+    featuredImage: "/images/bailo.webp",
+    description: "Building innovative technology to turn ideas into meaningful impact.",
   },
   {
     id: "3",
-    name: "MEET FATIMA KEBBEH",
+    name: "FATIMA KEBBEH",
     role: "Strategy and Communications Advisor",
     avatar: "/images/fkebbeh.jpeg",
     featuredImage: "/images/kebbeh.jpeg",
-    description: "Driven by purpose, building something meaningful for the next generation.",
+    description: "Guiding strategy and communication to strengthen our mission and vision.",
   },
   {
     id: "4",
+    name: "Babucarr",
+    role: "Finance and Resource Mobiliser",
+    avatar: "/images/baboucarr.jpeg",
+    featuredImage: "/images/baboucarr.jpeg",
+    description: "Managing resources responsibly to support growth and sustainability.",
+  },
+  {
+    id: "5",
     name: "ISHA BOJANG",
-    role: "Communications and Media Lead",
+    role: "Multimedia Lead",
     avatar: "/images/isa.jpeg",
     featuredImage: "/images/isha.jpeg",
-    description: "Driven by purpose, we show up every day to build something meaningful for the next generation of Gambian youth.",
+    description: "Sharing our story and amplifying the voices of Gambian youth.",
   },
+  {
+    id: "6",
+    name: "Sainabou Roberts",
+    role: "Creative Designer",
+    avatar: "/images/sainabour.jpeg",
+    featuredImage: "/images/sainabou.jpeg",
+    description: "Creating compelling visual content to tell our story and inspire action.",
+  }
 ]
 
 export function TeamShowcase({
-  title = "Meet The Team Behind Skillbridge Foundation",
+  title = "Meet The Team",
   teamMembers = defaultTeamMembers,
 }: TeamShowcaseProps) {
   const [selectedMember, setSelectedMember] = useState<TeamMember>(teamMembers[1] || teamMembers[0])
@@ -132,7 +149,7 @@ export function TeamShowcase({
           </div>
 
           {/* Right Side - Featured Member */}
-          <div className="lg:w-1/2 relative flex items-center justify-center">
+          <div className="lg:w-1/2 relative lg:pt-16 sm:pt-0 flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedMember.id}

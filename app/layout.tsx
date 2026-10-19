@@ -4,6 +4,8 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
+import SheetsProvider from '@/components/sheets/SheetsProvider'
+import WhatsAppChat from '@/components/WhatAppChat'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -24,9 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        {/* Navbar, Footer and every page call useSheets(), so they all sit inside the provider */}
+        <SheetsProvider>
+          <Navbar />
+          <main>{children}</main>
+          <WhatsAppChat />
+          <Footer />
+        </SheetsProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
