@@ -13,9 +13,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'SkillBridge Foundation | Building Skills, Clarity & Opportunity for Gambian Youth',
-  description: 'SkillBridge Foundation equips young people with practical digital skills, learning strategies, career clarity, and professional exposure to thrive in education, work, and life.',
-  keywords: ['SkillBridge', 'Gambia', 'Youth Development', 'Digital Skills', 'Career Guidance', 'Professional Development'],
+  title: 'SkillBridge | Building Skills, Clarity & Opportunity for Gambian Youth',
+  description: 'SkillBridge equips young people with practical digital skills, learning strategies, career clarity and professional exposure to thrive in education, work, and life.',
+  keywords: ['Computer Classes','SkillBridge', 'Gambia', 'Youth Development', 'Digital Skills','IT Instituition', 'Career Guidance', 'Organization Training', 'Professional Development'],
 }
 
 export default function RootLayout({
