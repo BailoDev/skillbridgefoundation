@@ -9,7 +9,7 @@ import CommunitySection from '@/components/home/community-section'
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      {/* <HeroSection /> */}
       <WhySection />
       <PillarsSection />
       <ImpactSection />
