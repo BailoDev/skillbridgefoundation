@@ -5,6 +5,7 @@ import {
   ArrowRight,
   Briefcase,
   CalendarDays,
+  FileText,
   Code2,
   Database,
   GraduationCap,
@@ -101,10 +102,10 @@ export type Course = {
   price: string
   icon: AcademyIcon
   image?: string // optional photo for the card banner, e.g. '/images/academy/frontend.jpg'
+  outline?: string // PDF in /public, e.g. '/documents/course-outlines/front-end-development.pdf'
 }
 
 function CourseCard({ course }: { course: Course }) {
-  const { openContact } = useSheets()
   const Icon = icons[course.icon]
 
   return (
@@ -142,14 +143,17 @@ function CourseCard({ course }: { course: Course }) {
           </span>
         </div>
 
-        <button
-          type="button"
-          onClick={() => openContact(INTERESTS.academy)}
-          className="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-[#1C376B] px-5 py-2.5 text-xs font-medium text-white transition-colors duration-300 hover:bg-[#152b56]"
-        >
-          Enroll now
-          <ArrowRight className="h-3.5 w-3.5" />
-        </button>
+        {course.outline && (
+          <a
+            href={course.outline}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-[#1C376B] px-5 py-2.5 text-xs font-medium text-white transition-colors duration-300 hover:bg-[#152b56]"
+          >
+            <FileText className="h-3.5 w-3.5" />
+            Course Outline
+          </a>
+        )}
       </div>
     </article>
   )

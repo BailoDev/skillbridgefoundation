@@ -13,14 +13,12 @@ import {
   type Programme,
 } from './FoundationBlocks'
 
-/* Everything on the Foundation page lives in this file.
-   Photos are optional — drop files into public/images/foundation/ using the names below
-   (or change the paths). Missing photos fall back to the navy / light-blue panels. */
+/* Everything on the Foundation page lives in this file.*/
 
 export const foundationMeta: PillarMeta = {
   id: 'foundation',
   tab: 'Foundation',
-  eyebrow: 'For young people who face barriers', // kept for the type; not shown in the hero
+  eyebrow: 'For young people who face barriers', 
   title: 'Making sure opportunity reaches everyone.',
   intro: "Where you're born and what you can afford should never decide whether you get a fair shot.",
   image: '/images/foundation/fdt.jpeg',
@@ -31,22 +29,22 @@ export const foundationMeta: PillarMeta = {
 const approach: Approach[] = [
   {
     title: 'Reaching Beyond the City',
-    text: "Most skills programmes in The Gambia are built around Kanifing, Banjul, and the urban centres. Foundation actively takes SkillBridge's training and opportunities to underserved and rural communities that would otherwise be left out entirely.",
+    text: "We take training to rural and underserved communities.",
     icon: 'outreach',
   },
   {
     title: 'Removing Financial Barriers',
-    text: "Where cost is the barrier — whether that's programme fees, transport, data, or equipment — Foundation works to cover the gap, through sponsorships, partnerships, and direct support, so ability to pay is never the deciding factor.",
+    text: "Sponsorships and partnerships cover fees, transport, data and equipment.",
     icon: 'funding',
   },
   {
     title: 'Building the Support Network',
-    text: "Many young people don't just need training — they need mentors, role models, and a community that believes in their potential. Foundation builds that support system through mentorship and volunteer networks.",
+    text: "Mentors, volunteers and a community that believes in young people.",
     icon: 'network',
   },
   {
     title: 'Expanding Access to Opportunity',
-    text: "Foundation works to make sure that once someone is trained, they're not left without a next step — connecting them onward into Academy programmes, and eventually Talent, just like anyone else.",
+    text: "A clear next step after training, into Academy and then Talent.",
     icon: 'pathway',
   },
 ]
