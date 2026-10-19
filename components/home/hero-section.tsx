@@ -197,7 +197,7 @@ export default function HeroSection() {
             className="mt-8 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-8"
           >
             <Link
-              href="#"
+              href="https://checkout.modempay.com/pay/7241592241c5b08157bee84d3c064787734cff765b4d4427542322a23d77f997"
               className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-medium text-[color:var(--hero-bg)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
             >
               Register for a course
