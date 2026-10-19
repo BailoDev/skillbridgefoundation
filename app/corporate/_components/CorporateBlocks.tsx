@@ -146,7 +146,7 @@ export function ProcessSection({
                 <Icon className="h-6 w-6" strokeWidth={1.6} />
               </span>
               <h3 className="mt-4 text-base font-semibold text-[#1C376B]">
-                {String(i + 1).padStart(2, '0')} — {step.title}
+                {String(i + 1).padStart(2, '0')} {step.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-500">{step.text}</p>
             </li>

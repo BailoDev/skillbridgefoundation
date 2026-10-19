@@ -44,21 +44,21 @@ const courses: Course[] = [
     // interest: 'Academy — Accounting Software (Quickbooks)',
   },
   {
-    title: 'Google Workspace and Analytics',
+    title: 'Workspace Technology and AI',
     description:
       'Master Google Workspace and use data to make better decisions.',
     duration: '12 weeks',
-    price: 'GMD 5,000',
+    price: 'GMD 6,000',
     icon: 'workspace',
     image: '/images/academy/gworkspace.jpg',
     // interest: 'Academy — Google Workspace and Analytics',
   },
   {
-    title: 'Communication and Public Speaking',
+    title: 'Public Speaking',
     description:
       'Speak with clarity, confidence and impact in any setting.',
     duration: '4 weeks',
-    price: 'GMD 6,000',
+    price: 'GMD 2,500',
     icon: 'speaking',
     image: '/images/academy/communication.jpg',
     // interest: 'Academy — Communication and Public Speaking',
