@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const WHATSAPP_NUMBER = "220833740557" 
+const WHATSAPP_NUMBER = "220835390472" 
 
 export default function WhatsAppChat() {
   return (
