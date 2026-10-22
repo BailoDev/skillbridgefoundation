@@ -15,6 +15,9 @@ import {
    Course outlines: save each PDF in  public/documents/course-outlines/  with the file names
    used below (or change the paths). The "Course Outline" button opens the PDF in a new tab. */
 
+// Payment link for the application form. Replace '#' with the real URL.
+const PAYMENT_LINK = 'https://checkout.modempay.com/pay/7241592241c5b08157bee84d3c064787734cff765b4d4427542322a23d77f997'
+
 export const academyMeta: PillarMeta = {
   id: 'academy',
   tab: 'Academy',
@@ -22,7 +25,8 @@ export const academyMeta: PillarMeta = {
   title: 'Build the skills you need for what comes next.',
   intro: 'Practical, hands-on courses for students, graduates and young professionals.',
   image: '/images/academy.jpg',
-  cta: { label: 'Apply Now', interest: INTERESTS.academy },
+  // `href` makes the button go straight to the payment page instead of opening the contact sheet.
+  cta: { label: 'Buy Form', interest: INTERESTS.academy, href: PAYMENT_LINK },
 }
 
 const OUTLINES = '/documents/course-outlines'

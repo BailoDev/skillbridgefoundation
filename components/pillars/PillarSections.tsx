@@ -159,15 +159,24 @@ export function SecondaryCta({ cta }: { cta?: CtaAction }) {
   )
 }
 
-/** Big navy button — pinned at the bottom of the sheet, and closing the full page */
+/** Big navy button pinned at the bottom of the sheet and closing the full page */
 export function PageCta({ cta }: { cta: CtaAction }) {
   const { openContact } = useSheets()
+  const className =
+    'flex h-14 w-full items-center justify-center gap-3 bg-[#1C376B] text-xs font-medium uppercase tracking-[0.28em] text-white transition-colors duration-300 hover:bg-[#152b56]'
+
+  // A link (e.g. the payment page) goes straight there instead of opening the contact sheet
+  if (cta.href) {
+    return (
+      <a href={cta.href} target="_blank" rel="noopener noreferrer" className={className}>
+        {cta.label}
+        <ArrowUpRight className="h-3.5 w-3.5" />
+      </a>
+    )
+  }
+
   return (
-    <button
-      type="button"
-      onClick={() => openContact(cta.interest)}
-      className="flex h-14 w-full items-center justify-center gap-3 bg-[#1C376B] text-xs font-medium uppercase tracking-[0.28em] text-white transition-colors duration-300 hover:bg-[#152b56]"
-    >
+    <button type="button" onClick={() => openContact(cta.interest)} className={className}>
       {cta.label}
       <ArrowUpRight className="h-3.5 w-3.5" />
     </button>

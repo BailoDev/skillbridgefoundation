@@ -1,7 +1,13 @@
 export type PillarId = 'academy' | 'corporate' | 'foundation' | 'technologies'
 
 /** A button that opens the contact sheet with `interest` pre-selected. */
-export type CtaAction = { label: string; interest: string; soon?: boolean }
+export type CtaAction = {
+  label: string
+  interest: string
+  soon?: boolean
+  /** If set, the button opens this link (e.g. a payment page) instead of the contact sheet. */
+  href?: string
+}
 
 export type PillarItem = {
   title: string
