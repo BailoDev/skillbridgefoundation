@@ -1,10 +1,12 @@
 "use client"
 
-import type { CSSProperties, ReactNode } from 'react'
+import type { CSSProperties, MouseEvent, ReactNode } from 'react'
+import { useSheets } from '@/components/sheets/sheets-context'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Link2, ArrowRight, Play } from 'lucide-react'
 import { Poppins } from 'next/font/google'
+
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -148,6 +150,15 @@ function Arch({
 }
 
 export default function HeroSection() {
+const { openPillar } = useSheets()
+
+  // Plain left-click opens the sheet. Ctrl/Cmd/middle-click still open /academy in a new tab.
+  const onExploreClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return
+    e.preventDefault()
+    openPillar('academy')
+  }
+
   return (
     <section
       style={theme}
@@ -203,13 +214,14 @@ export default function HeroSection() {
               Register for a course
             </Link>
             <Link
-              href="/about"
+              href="/academy"
+              onClick={onExploreClick}
               className="group inline-flex items-center gap-3 text-sm font-medium text-white"
             >
               <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/70 transition-colors duration-300 group-hover:bg-white group-hover:text-[color:var(--hero-bg)]">
                 <ArrowRight className="h-4 w-4" />
               </span>
-              Explore SkillBridge
+              Explore Courses
             </Link>
           </motion.div>
         </div>
